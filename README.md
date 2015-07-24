@@ -14,3 +14,5 @@ A command-line user interface for executing and monitoring jobs and also for dat
 mc2 rest
 --------------
 A programming-language independent application interface for accessing the mc2 services programmatically. This may be used by science gateways not developed in Java or by other tools interested in accessing the underlying infrastructure in a middleware-independent way.
+
+*Notice that access the PMES/BES/COMPSS address from some machines you need to add the web service address security certificate do the Java security folder.  A jar file called InstallCert.jar is available in [Utils](https://github.com/bastosbf/mc2-toolset/Utils) folder and will generate a jssecacert file that must be copied to JAVA_HOME/security folder manually.*
