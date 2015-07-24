@@ -1,7 +1,7 @@
 # mc2-toolset
 The purpose of the mc2 toolset is to provide the simplest environment as possible for configuring and accessing services, without any development or deployment effort by the scientific application developer. This is composed of three tools: the mc2 gateway engine, the mc2 cli and the mc2 rest.
 
-There are manuals available for each tool that can be foun in: [Manuals](manuals).
+There are manuals available for each tool that can be foun in: [Manuals](https://github.com/bastosbf/mc2-toolset/manuals).
 
 mc2 gateway engine
 --------------
