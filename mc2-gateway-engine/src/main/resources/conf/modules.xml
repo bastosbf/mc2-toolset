@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<modules xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		 xsi:noNamespaceSchemaLocation="../xsd/modules.xsd">
+	<shared-files>
+		<enabled>true</enabled>
+	</shared-files>
+	<public-files>
+		<enabled>true</enabled>
+	</public-files>
+	<guest-user>
+		<enabled>true</enabled>
+		<allowed-versions>ALL</allowed-versions>
+	</guest-user>
+	<bulk-jobs>
+		<enabled>true</enabled>
+		<begin-value static="false" max="10">
+			<label>struts.propeties.key</label>
+			<default-value>1</default-value>                
+		</begin-value>
+		<end-value static="false" min="0" max="10">
+			<label>End Value</label>
+			<default-value>10</default-value>
+		</end-value>
+		<step-value static="false" min="1">
+			<label>Step Value</label>
+			<default-value>1</default-value>
+		</step-value>
+	</bulk-jobs>
+</modules>

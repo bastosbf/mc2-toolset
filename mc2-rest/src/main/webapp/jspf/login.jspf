@@ -1,0 +1,14 @@
+<div ng-show="result.uuid == null">
+	<fieldset>
+		<legend>Login</legend>
+		<label for="username">Username:</label> 
+		<input type="text" id="username" name="username" value=""> 
+		<br> 
+		<label for="password">Password:</label> 
+		<input type="password" id="password" name="password" value="">
+		<br>
+		<button ng-click="doLogin()">Login</button>
+	</fieldset>
+</div>
+<div ng-show="result.code==591" class="alert alert-danger" role="alert">User Not Authorized.</div>
+<div ng-show="result.code==200" class="alert alert-success" role="alert">Success!</div>

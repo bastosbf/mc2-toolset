@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+	<bean id="configurationService"
+		class="br.lncc.sinapad.adapter.csgrid.configuration.CSGridConfigurationService" />
+	<bean id="applicationService"
+		class="br.lncc.sinapad.adapter.csgrid.application.CSGridApplicationService" />
+	<bean id="authenticationService"
+		class="br.lncc.sinapad.adapter.csgrid.authentication.CSGridAuthenticationService" />
+	<bean id="fileService" class="br.lncc.sinapad.adapter.csgrid.file.CSGridFileService" />
+	<bean id="jobMonitoringService"
+		class="br.lncc.sinapad.adapter.csgrid.monitoring.CSGridJobMonitoringService" />
+	<bean id="resourceMonitoringService"
+		class="br.lncc.sinapad.adapter.csgrid.monitoring.CSGridResourceMonitoringService" />
+	<bean id="jobSubmissionService"
+		class="br.lncc.sinapad.adapter.csgrid.submission.CSGridJobSubmissionService" />
+	<bean id="applicationConverter"
+		class="br.lncc.sinapad.adapter.csgrid.application.converter.CSGridApplicationConverter" />
+
+
+	<bean id="emailConfig" class="br.lncc.sinapad.portengin.config.EmailConfig">
+		<constructor-arg index="0" value="/conf/email.xml" />
+	</bean>
+	<bean id="modulesConfig" class="br.lncc.sinapad.portengin.config.ModulesConfig">
+		<constructor-arg index="0" value="/conf/modules.xml" />
+	</bean>
+	<bean id="portalConfig" class="br.lncc.sinapad.portengin.config.PortalConfig">
+		<constructor-arg index="0" value="/conf/portal.xml" />
+	</bean>
+	<bean id="authenticationConfig" class="br.lncc.sinapad.portengin.config.AuthenticationConfig">
+		<constructor-arg index="0" value="/conf/authentication.xml" />
+	</bean>
+</beans>

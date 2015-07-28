@@ -1,0 +1,29 @@
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .1em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #0000ff">import</span> urllib
+<span style="color: #0000ff">import</span> urllib2
+
+url = <span style="color: #a31515">&#39;http://<span id="hostEx3"></span>rest/authentication/login&#39;</span>
+params = urllib.urlencode({
+  <span style="color: #a31515">&#39;username&#39;</span>: <span style="color: #a31515">&#39;username&#39;</span>,
+  <span style="color: #a31515">&#39;password&#39;</span>: <span style="color: #a31515">&#39;password&#39;</span>
+})
+headers = {<span style="color: #a31515">&#39;Accept&#39;</span> : <span style="color: #a31515">&#39;application/xml&#39;</span>}
+<span style="color: #008000">#headers = {&#39;Accept&#39; : &#39;application/json&#39;}</span>
+req = urllib2.Request(url, params, headers)
+response = urllib2.urlopen(req).read()
+<span style="color: #0000ff">print</span> response
+</pre></td></tr></table>
+          <h4 class="text-right">
+            <a href="#top">Back to Top</a>
+          </h4></div>

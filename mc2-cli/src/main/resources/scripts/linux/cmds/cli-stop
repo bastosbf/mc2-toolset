@@ -1,0 +1,10 @@
+#!/bin/bash
+
+if [[ -e ~/.uuid ]]; then
+	UUID=$(<~/.uuid)
+else
+	UUID="empty"	
+fi
+
+java -Djava.security.policy=$CLI_HOME/cli.policy -cp $CLI_HOME/mc2-cli.jar br.lncc.sinapad.cli.client.Client STOP $UUID $@
+

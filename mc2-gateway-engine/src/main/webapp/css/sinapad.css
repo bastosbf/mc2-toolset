@@ -1,0 +1,26 @@
+.btn-red {
+  background-color: hsl(7, 97%, 26%) !important;
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#c81a03", endColorstr="#821001");
+  background-image: -khtml-gradient(linear, left top, left bottom, from(#c81a03), to(#821001));
+  background-image: -moz-linear-gradient(top, #c81a03, #821001);
+  background-image: -ms-linear-gradient(top, #c81a03, #821001);
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #c81a03), color-stop(100%, #821001));
+  background-image: -webkit-linear-gradient(top, #c81a03, #821001);
+  background-image: -o-linear-gradient(top, #c81a03, #821001);
+  background-image: linear-gradient(#c81a03, #821001);
+  border-color: #821001 #821001 hsl(7, 97%, 22.5%);
+  color: #fff !important;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.23);
+  -webkit-font-smoothing: antialiased;
+}
+
+.loading {
+    position:fixed;
+    top: 50%;
+    left: 50%;
+    width:31px;
+    height:31px;
+    margin-top: -15px;
+    margin-left: -15px;
+}

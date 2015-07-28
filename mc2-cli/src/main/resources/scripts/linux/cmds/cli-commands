@@ -1,0 +1,51 @@
+#!/bin/bash
+
+echo
+echo "*****************"
+echo "GENERAL INFORMATION:"
+echo "- All commands contain a '--help' option."
+echo "*****************"
+echo
+echo "cli-login - login an user and store the user uuid in the home directory"
+echo -n -e "\t"
+java -Djava.security.policy=$CLI_HOME/cli.policy -cp $CLI_HOME/mc2-cli.jar br.lncc.sinapad.cli.client.Client LOGIN NULL USAGE
+echo
+echo "cli-logout - logout the current user and removes the user uuid in the home directory"
+echo -n -e "\t"
+java -Djava.security.policy=$CLI_HOME/cli.policy -cp $CLI_HOME/mc2-cli.jar br.lncc.sinapad.cli.client.Client LOGOUT NULL USAGE
+echo
+echo "cli-create_dir - create a new directory into the project area of the user"
+echo -n -e "\t"
+java -Djava.security.policy=$CLI_HOME/cli.policy -cp $CLI_HOME/mc2-cli.jar br.lncc.sinapad.cli.client.Client CREATE_DIR NULL USAGE
+echo
+echo "cli-get - downloads a file in the project area of the user onto the local filesystem"
+echo -n -e "\t"
+java -Djava.security.policy=$CLI_HOME/cli.policy -cp $CLI_HOME/mc2-cli.jar br.lncc.sinapad.cli.client.Client GET NULL USAGE 
+echo
+echo "cli-put - uploads a file or directory in the local filesystem onto the project area of the user. If uploading a directory, provide a ZIP file of the desired directory and use the switch --directory"
+echo -n -e "\t"
+java -Djava.security.policy=$CLI_HOME/cli.policy -cp $CLI_HOME/mc2-cli.jar br.lncc.sinapad.cli.client.Client PUT NULL USAGE
+echo
+echo "cli-list - lists the files in the project area of the user (optionally from a specific path in such area)"
+echo -n -e "\t"
+java -Djava.security.policy=$CLI_HOME/cli.policy -cp $CLI_HOME/mc2-cli.jar br.lncc.sinapad.cli.client.Client LIST NULL USAGE
+echo
+echo "cli-remove - removes a file in the project area of the user"
+echo -n -e "\t"
+java -Djava.security.policy=$CLI_HOME/cli.policy -cp $CLI_HOME/mc2-cli.jar br.lncc.sinapad.cli.client.Client REMOVE NULL USAGE
+echo
+echo "cli-queues - lists the queues availables for an specific project and optionally its version"
+echo -n -e "\t"
+java -Djava.security.policy=$CLI_HOME/cli.policy -cp $CLI_HOME/mc2-cli.jar br.lncc.sinapad.cli.client.Client QUEUES NULL USAGE
+echo
+echo "cli-run - runs the project job (optionally using an specific algorithm version) . Options and flags are job-specific, use --help to find out the available options/flags"
+echo -n -e "\t"
+java -Djava.security.policy=$CLI_HOME/cli.policy -cp $CLI_HOME/mc2-cli.jar br.lncc.sinapad.cli.client.Client RUN NULL USAGE --help
+echo
+echo "cli-stop - stops a job that is running"
+echo -n -e "\t"
+java -Djava.security.policy=$CLI_HOME/cli.policy -cp $CLI_HOME/mc2-cli.jar br.lncc.sinapad.cli.client.Client STOP NULL USAGE
+echo
+echo "cli-stats - verifies the status of project jobs"
+echo -n -e "\t"
+java -Djava.security.policy=$CLI_HOME/cli.policy -cp $CLI_HOME/mc2-cli.jar br.lncc.sinapad.cli.client.Client STATS NULL USAGE

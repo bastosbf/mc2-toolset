@@ -1,0 +1,63 @@
+
+<div class="container" ng-init="tabActive=1">
+  <ul class="nav nav-pills nav-justified">
+    <li ng-class="{active: tabActive==1}">
+      <a href="#java" ng-click="tabActive=1">Java</a>
+    </li>
+    <li ng-class="{active: tabActive==2}">
+      <a href="#php" ng-click="tabActive=2">PHP</a>
+    </li>
+    <li ng-class="{active: tabActive==3}">
+      <a href="#python" ng-click="tabActive=3">Python</a>
+    </li>
+  </ul>
+  <br>
+  <fieldset class="scheduler-border">
+    <div ng-show="tabActive==1">
+      <legend class="scheduler-border" id="java exemples">Java Examples</legend>
+      <div class="list-group">
+        <div class="list-group-item">
+          <h4 class="list-group-item-heading">
+            <a href="" target="_blank">rest/authentication/login example</a>
+          </h4>
+          </br>
+          <%@ include file="exampleLoginJAVA.jspf"%>
+        </div>
+      </div>
+    </div>
+
+    <div ng-show="tabActive==2">
+      <legend class="scheduler-border" id="php exemples">PHP Examples</legend>
+      <div class="list-group">
+        <div class="list-group-item">
+          <h4 class="list-group-item-heading">
+            <a href="" target="_blank">rest/authentication/login example</a>
+          </h4>
+          </br>
+          <%@ include file="exampleLoginPHP.jspf"%>
+        </div>
+      </div>
+    </div>
+
+    <div ng-show="tabActive==3">
+      <legend class="scheduler-border" id="python exemples">Python Examples</legend>
+      <div class="list-group">
+        <div class="list-group-item">
+          <h4 class="list-group-item-heading">
+            <a href="" target="_blank">rest/authentication/login example</a>
+          </h4>
+          </br>
+          <%@ include file="exampleLoginPYTHON.jspf"%>
+        </div>
+      </div>
+    </div>
+  </fieldset>
+</div>
+
+
+<script type="text/javascript">
+	var host = window.location.host + window.location.pathname
+	document.getElementById("hostEx1").innerHTML = host;
+	document.getElementById("hostEx2").innerHTML = host;
+	document.getElementById("hostEx3").innerHTML = host;
+</script>

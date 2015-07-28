@@ -1,0 +1,292 @@
+<style type="text/css">
+div.image p {
+	text-align: center;
+	font-style: italic;
+	font-size: smaller;
+	text-indent: 0;
+}
+</style>
+<p>
+<div align="right">
+  <a href="#introduction">introduction</a>
+  |
+  <a href="#submission">submission</a>
+  |
+  <a href="#monitoring">monitoring</a>
+  |
+  <a href="#notification">notification</a>
+  |
+  <a href="#fmanagement">file management</a>
+</div>
+</p>
+<br />
+<div align="center">
+  <a name="introduction">
+    <h1>Introduction</h1>
+  </a>
+</div>
+<br />
+<p>
+  SINAPAD's PortEngin offer an web execution environment for applications on the HPC clusters that comprise the Brazilian National System for High-Performance Computing (
+  <a href="http://www.lncc.br/sinapad" target="_blank">SINAPAD</a>
+  ).
+</p>
+<p>
+  When the user signs up for an account in the gateway, a personal project area is created in which he/she can keep his/her files to be used in the gateway. The sections below describe how the user
+  can make use of the various functionalities that the gateway offers. Also some gateways offers a "federation login" using
+  <a href="http://gateway.rnp.br/web/servicos/cafe">cafe</a>
+  or shibboleth, LDAP and VOMS login and a "login as guest" option where guest users will not be able to keep input files, but will be allowed to execute the application without a user account created.
+  <a href="#figure1">Figure 1</a>
+  shows a login page sample.
+</p>
+<br />
+<div class="image">
+  <p>
+    <a name="figure1" href="images/help/figure1.png" data-toggle="lightbox" data-title="Figure 1" />
+    <img src="images/help/figure1.png" width="100%" />
+    </a>
+  </p>
+  <p align="center">Figure 1</p>
+</div>
+<br />
+<a name="submission"></a>
+<div align="right">
+  <a href="#introduction">Top</a>
+</div>
+<div align="center">
+  <h1>Submission of the Jobs</h1>
+</div>
+<br />
+<p>
+  After logging in the gateway, the user is presented the page like in
+  <a href="#figure2">Figure 2</a>
+  , where the user can set the submission options of his/her simulation (e.g. input parameters, input files/directories, output files/directories) and submit it for execution.
+  <a href="#figure2">Figure 2</a>
+  also shows a menu on top with many other global options, which will be described below. The page in
+  <a href="#figure2">Figure 2</a>
+  is the result of the user selecting the "Submission" global option in this menu. Notice the arguments presented in the figure will change depending on the gateway you are trying to run and its
+  version and the configuration that is applied for the gateway. The gateway presented in
+  <a href="#figure2">Figure 2</a>
+  allows users to change the executable version and choose the resource to where the task will be submitted.
+</p>
+<br />
+<div class="image">
+  <p>
+    <a name="figure2" href="images/help/figure2.png" data-toggle="lightbox" data-title="Figure 2" />
+    <img src="images/help/figure2.png" width="100%" />
+    </a>
+  </p>
+  <p align="center">Figure 2</p>
+</div>
+<br />
+<p>
+  If the option "login as guest" is selected some options are added to the application parameters, and all output parameters are hidden and given a pre-defined value. This value is based on an random
+  number generated on login to identify the guest user.
+  <a href="#figure3">Figure 3</a>
+  shows these parameters. Notice that some options on the menu are hidden. These options are only available for users who have a project area and will be described below.
+</p>
+<br />
+<div class="image">
+  <p>
+    <a name="figure3" href="images/help/figure3.png" data-toggle="lightbox" data-title="Figure 3" />
+    <img src="images/help/figure3.png" width="100%" />
+    </a>
+  </p>
+  <p align="center">Figure 3</p>
+</div>
+<br />
+<p>
+  In
+  <a href="#figure2">Figure 2</a>
+  , after clicking the "Choose" button of the "Input File" parameters, the page in
+  <a href="#figure4">Figure 4</a>
+  shows, where the user can upload his/her input file, required by the simulation, or select an existing one in his/her project area. The uploaded files will be stored into the user's project area and
+  can be reused for future simulations.
+</p>
+<br />
+<div class="image">
+  <p>
+    <a name="figure4" href="images/help/figure4.png" data-toggle="lightbox" data-title="Figure 4" />
+    <img src="images/help/figure4.png" width="100%" />
+    </a>
+  </p>
+  <p align="center">Figure 4</p>
+</div>
+<p>
+  In
+  <a href="#figure1">Figure 2</a>
+  there's also a Text Field and an Integer List, which are two other elements allowed in the application configuration. These elements can change depending on the application needs and also other new
+  elements may be added. In order of understanding all about the application parameters a "hint" is provided when user clicks the
+  <img src="images/question.gif">
+  icon.
+  <a href="#figure6">Figure 6</a>
+  is an example of the hint information for these two elements.
+</p>
+<br />
+<div class="image">
+  <p>
+    <a name="figure6" href="images/help/figure6.png" data-toggle="lightbox" data-title="Figure 6" />
+    <img src="images/help/figure6.png" width="100%" />
+    </a>
+  </p>
+  <p align="center">Figure 6</p>
+</div>
+<br />
+<p>
+  Also in
+  <a href="#figure2">Figure 2</a>
+  , when clicking "Submit" button a validation of the required parameters will be made. This validation will highlight all required parameters that were not filled by the user and the application will
+  not be submitted.
+  <a href="#figure7">Figure 7</a>
+  shows the highlighted required parameters after clicking the "Submit" button.
+</p>
+<br />
+<div class="image">
+  <p>
+    <a name="figure7" href="images/help/figure7.png" data-toggle="lightbox" data-title="Figure 7" />
+    <img src="images/help/figure7.png" width="100%" />
+    </a>
+  </p>
+  <p align="center">Figure 7</p>
+</div>
+<br />
+<a name="monitoring"></a>
+<div align="right">
+  <a href="#introduction">Top</a>
+</div>
+<div align="center">
+  <h1>Monitoring the Submissions</h1>
+</div>
+<br />
+<p>
+  After the submission of a job, the page in
+  <a href="#figure8">Figure 8</a>
+  is presented to the uuid, which allows he/she to get the submission identifier.
+</p>
+<br />
+<div class="image">
+  <p>
+    <a name="figure8" href="images/help/figure8.png" data-toggle="lightbox" data-title="Figure 8" />
+    <img src="images/help/figure8.png" width="100%" />
+    </a>
+  </p>
+  <p align="center">Figure 8</p>
+</div>
+<br />
+<p>
+  With the submission identifier, the user can monitor a simulation by choosing the "Results" global option in menu. The resulting select is shown in
+  <a href="#figure9">Figure 9</a>
+  containing the identifier of the job, the date of its last status update and the job status.
+  <i>
+    NOTE: The online monitoring of the submission is optional to the uuid, because he/she will receive an e-mail informing the end of the execution with a direct link to the simulation monitoring page
+    (see
+    <a href="#notification">below</a>
+    ).
+  </i>
+</p>
+<br />
+<div class="image">
+  <p>
+    <a name="figure9" href="images/help/figure9.png" data-toggle="lightbox" data-title="Figure 9" />
+    <img src="images/help/figure9.png" width="100%" />
+    </a>
+  </p>
+  <p align="center">Figure 9</p>
+</div>
+<br />
+<p>
+  When selecting or typing the identifier of the submission, the page in
+  <a href="#figure10">Figure 10</a>
+  is presented to the uuid, which allows him/her to: (i) view the job status (eg. "RUNNING" or "DONE"), (ii) view the input, output and log files once the submission is DONE, and (iii) view some
+  additional information about the submission. Also in this page the user can resubmit a simulation. In this case a page such as the one in
+  <a href="#figure2">Figure 2</a>
+  is presented so the user can change the parameters before a new submission. In this same page users are also able to cancel a job submission while it's status is still "RUNNING".
+</p>
+<br />
+<div class="image">
+  <p>
+    <a name="figure10" href="images/help/figure10.png" data-toggle="lightbox" data-title="Figure 10" />
+    <img src="images/help/figure10.png" width="100%" />
+    </a>
+  </p>
+  <p align="center">Figure 10</p>
+</div>
+<br />
+<a name="notification"> </a>
+<div align="right">
+  <a href="#introduction">Top</a>
+</div>
+<div align="center">
+  <h1>E-mail Notification</h1>
+</div>
+<br />
+<p>
+  After the end of the job, the user receives a notification message such as the one in
+  <a href="#figure11">Figure 11</a>
+  in his/her email account. This message contains a URL that allows the user to open a page like the one in
+  <a href="#figure10">Figure 10</a>
+  with information about his/her job.
+</p>
+<div class="image">
+  <p>
+    <a name="figure11" href="images/help/figure11.png" data-toggle="lightbox" data-title="Figure 11" />
+    <img src="images/help/figure11.png" width="100%" />
+    </a>
+  </p>
+  <p align="center">Figure 11</p>
+</div>
+<br />
+<a name="fmanagement"> </a>
+<div align="right">
+  <a href="#introduction">Top</a>
+</div>
+<div align="center">
+  <h1>File Management</h1>
+</div>
+<br />
+<p>
+  <a href="#figure12">Figure 12</a>
+  and
+  <a href="#figure13">Figure 13</a>
+  illustrates the page that opens when the user chooses the "Files > Project Area" global option in the menu. The user is presented a directory tree structure that represents the project area of the
+  user. A menu is always shown beside any file or folder presented in the gateway, as a dropdown that allows him/her to make some operations such as: Download a File or Directory, Edit a File, Remove
+  a File, Share a File with other gateway user or Publish it in the Internet and Upload a File or Directory (The options in the menu depend on the gateway configuration).
+</p>
+<br />
+<div class="image">
+  <p>
+    <a name="figure12" href="images/help/figure12.png" data-toggle="lightbox" data-title="Figure 12" />
+    <img src="images/help/figure12.png" width="100%" />
+    </a>
+  </p>
+  <p align="center">Figure 12</p>
+</div>
+<br />
+<div class="image">
+  <p>
+    <a name="figure13" href="images/help/figure13.png" rel="lightbox" title="Figure 13" />
+    <img src="images/help/figure13.png" width="100%" />
+    </a>
+  </p>
+  <p align="center">Figure 13</p>
+</div>
+<br />
+<p>
+  Once user selects the "Files > Shared Files" global option in the menu. A shared area is shown with all shared files of the gateway. The user may choose between copying the file to his/her project
+  area or remove the file or directory from the shared area. Notice only the user who shared the file can remove it, but all gateway users can copy any file that has been shared.
+  <a href="#figure14">Figure 14</a>
+  illustrates the shared area and the menu options.
+</p>
+<br />
+<div class="image">
+  <p>
+    <a name="figure14" href="images/help/figure14.png" data-toggle="lightbox" data-title="Figure 14" />
+    <img src="images/help/figure14.png" width="100%" />
+    </a>
+  </p>
+  <p align="center">Figure 14</p>
+</div>
+<a name="zipfiles"> </a>
+<div align="right">
+  <a href="#introduction">Top</a>
+</div>

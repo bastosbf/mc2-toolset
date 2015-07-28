@@ -1,0 +1,25 @@
+#!/bin/bash
+
+if [[ -e ~/.uuid ]]; then
+	UUID=$(<~/.uuid)
+else
+	UUID="empty"	
+fi
+
+REALPATH=`pwd`
+
+for i in $*
+do
+        if [[ $parse == 1 ]]; then
+                if [[ $i != /* ]]; then
+                        i="$REALPATH/$i"
+                fi
+                parse=0   
+        fi
+        if [[ $i == "--dest" ]]; then
+                parse=1
+        fi
+        ARGS=`echo $ARGS $i`
+done
+
+java -Djava.security.policy=$CLI_HOME/cli.policy -cp $CLI_HOME/mc2-cli.jar br.lncc.sinapad.cli.client.Client GET $UUID $ARGS 

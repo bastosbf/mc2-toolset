@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<email xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="../xsd/email.xsd">
+	<smtp-host>smtp.service.url</smtp-host>
+	<email-from>sinapad-sup@lncc.br</email-from>
+	<email-to>sinapad-sup@lncc.br</email-to>
+	<job-finished-notification-message>
+		<subject>Notification from mc2 gateway</subject>
+		<body>You are receiving this message because one of your jobs has finished.</body>
+	</job-finished-notification-message>
+</email>
+

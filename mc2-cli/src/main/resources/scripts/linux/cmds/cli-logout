@@ -1,0 +1,19 @@
+#!/bin/bash
+
+if [[ -e ~/.uuid ]]; then
+	UUID=$(<~/.uuid)
+else
+	UUID="empty"	
+fi
+
+RETURN=`java -Djava.security.policy=$CLI_HOME/cli.policy -cp $CLI_HOME/mc2-cli.jar br.lncc.sinapad.cli.client.Client LOGOUT $UUID $@ 2>> $CLI_HOME/cli.log`
+IFS='::' read -a RESULT <<< "$RETURN"
+if [[ ${RESULT[0]} == 200 ]]; then
+	if [[ -e ~/.uuid ]]; then
+		rm ~/.uuid
+	fi
+	echo "You have logged out!"
+else
+	echo $RETURN
+fi
+

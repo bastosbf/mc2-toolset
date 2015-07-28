@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <xsd:element name="email">
+    	<xsd:complexType>
+            <xsd:all>
+            	<xsd:element name="smtp-host" type="xsd:string"
+            		minOccurs="1" maxOccurs="1">
+            	</xsd:element>
+            	<xsd:element name="email-from" type="xsd:string"
+            		minOccurs="1" maxOccurs="1">
+            	</xsd:element>
+            	<xsd:element name="email-to" type="xsd:string"
+            		minOccurs="1" maxOccurs="1">
+            	</xsd:element>
+            	<xsd:element name="job-finished-notification-message">
+            		<xsd:complexType>
+            			<xsd:sequence>
+            				<xsd:element name="subject"
+            					type="xsd:string" maxOccurs="1" minOccurs="1">
+            				</xsd:element>
+            				<xsd:element name="body"
+            					type="xsd:string" maxOccurs="1" minOccurs="1">
+            				</xsd:element>
+            			</xsd:sequence>
+            		</xsd:complexType></xsd:element>
+            </xsd:all>
+    	</xsd:complexType>
+    </xsd:element>
+</xsd:schema>

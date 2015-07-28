@@ -1,0 +1,11 @@
+#!/bin/bash
+
+RETURN=`java -Djava.security.policy=$CLI_HOME/cli.policy -cp $CLI_HOME/mc2-cli.jar br.lncc.sinapad.cli.client.Client LOGIN NULL $@ 2>> $CLI_HOME/cli.log`
+IFS='::' read -a RESULT <<< "$RETURN"
+if [[ ${RESULT[0]} == 200 ]]; then
+	echo ${RESULT[2]} > ~/.uuid
+	echo "You have logged in successfully!"
+else
+	echo $RETURN
+fi
+

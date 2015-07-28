@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<xsd:complexType name="application-type">
+		<xsd:all>
+			<xsd:element name="name" type="xsd:string"
+				maxOccurs="1" minOccurs="1">
+			</xsd:element>
+			<xsd:element name="default-version"
+				type="xsd:string" maxOccurs="1" minOccurs="1">
+			</xsd:element>
+
+			<xsd:element name="info" type="xsd:string" minOccurs="1" maxOccurs="1"></xsd:element>
+		</xsd:all>
+	</xsd:complexType>
+	<xsd:element name="portal">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="acronym-name" type="xsd:string"
+					minOccurs="1" maxOccurs="1">
+				</xsd:element>
+				<xsd:element name="full-name" type="xsd:string"
+					minOccurs="1" maxOccurs="1">
+				</xsd:element>
+				<xsd:element name="project-name" type="xsd:string"
+					minOccurs="1" maxOccurs="1">
+				</xsd:element>
+				<xsd:element name="applications" minOccurs="1"
+					maxOccurs="1">
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:element name="application"
+								type="application-type" minOccurs="1" maxOccurs="unbounded">
+							</xsd:element>
+						</xsd:sequence>
+					</xsd:complexType>
+				</xsd:element>
+			</xsd:sequence>
+			<xsd:attribute name="auto-generate-interface"
+				type="xsd:boolean">
+			</xsd:attribute>
+			<xsd:attribute name="allow-resource-choice"
+				type="xsd:boolean">
+			</xsd:attribute>
+			<xsd:attribute name="allow-multiple-versions"
+				type="xsd:boolean">
+			</xsd:attribute>
+			<xsd:attribute name="result-check-interval" type="xsd:int"></xsd:attribute>
+		</xsd:complexType>
+	</xsd:element>
+
+</xsd:schema>

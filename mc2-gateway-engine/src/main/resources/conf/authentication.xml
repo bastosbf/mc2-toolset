@@ -1,0 +1,10 @@
+<authentication xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+				xsi:noNamespaceSchemaLocation="../xsd/authentication.xsd">
+	<ldap enabled="true" />
+	<voms enabled="true" />
+	<shibboleth enabled="true">
+		<url>shibbolet.authentication.url</url>
+		<storage-path>shibbolet.token.storage.path</storage-path>
+	</shibboleth>
+</authentication>
+

@@ -1,0 +1,60 @@
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .1em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #0000ff">&lt;?php</span>
+    $url = <span style="color: #a31515">&#39;http://<span id="hostEx2"></span>rest/authentication/login&#39;</span>;
+
+  $data = <span style="color: #0000ff">array</span>(
+    <span style="color: #a31515">&#39;username&#39;</span>=&gt; <span style="color: #a31515">&#39;username&#39;</span>,
+    <span style="color: #a31515">&#39;password&#39;</span>=&gt; <span style="color: #a31515">&#39;password&#39;</span>
+    );
+
+    $headers = <span style="color: #0000ff">array</span>(
+     <span style="color: #a31515">&#39;Accept: application/xml&#39;</span>
+     <span style="color: #008000">#&#39;Accept: application/json&#39;</span>
+    );
+         
+    $handle = curl_init();
+    curl_setopt($handle, CURLOPT_URL, $url);
+    curl_setopt($handle, CURLOPT_HTTPHEADER, $headers);
+    curl_setopt($handle, CURLOPT_RETURNTRANSFER, <span style="color: #0000ff">true</span>);
+    curl_setopt($handle, CURLOPT_SSL_VERIFYHOST, <span style="color: #0000ff">false</span>);
+    curl_setopt($handle, CURLOPT_SSL_VERIFYPEER, <span style="color: #0000ff">false</span>);
+
+    curl_setopt($handle, CURLOPT_POST, <span style="color: #0000ff">true</span>);
+    curl_setopt($handle, CURLOPT_POSTFIELDS, http_build_query($data));
+
+     
+    $response = curl_exec($handle);
+    $code = curl_getinfo($handle, CURLINFO_HTTP_CODE);
+	
+    <span style="color: #0000ff">echo</span> $response;
+ <span style="color: #0000ff">?&gt;</span>
+</pre></td></tr></table> <h4 class="text-right">
+            <a href="#top">Back to Top</a>
+          </h4></div>

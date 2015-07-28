@@ -1,0 +1,283 @@
+<style type="text/css">
+.form-signin {
+	max-width: 330px;
+	padding: 15px;
+	height: 150px;
+	margin: 0 auto;
+}
+
+.form-signin .form-signin-heading, .form-signin .checkbox {
+	margin-bottom: 10px;
+}
+
+.form-signin .checkbox {
+	font-weight: normal;
+}
+
+.form-signin .form-control {
+	position: relative;
+	font-size: 16px;
+	height: auto;
+	padding: 10px;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+.form-signin .form-control:focus {
+	z-index: 2;
+}
+
+.form-signin input[type="text"] {
+	margin-bottom: -1px;
+	border-bottom-left-radius: 0;
+	border-bottom-right-radius: 0;
+}
+
+.form-signin input[type="password"] {
+	margin-bottom: 10px;
+	border-top-left-radius: 0;
+	border-top-right-radius: 0;
+}
+
+legend.scheduler-border {
+	width: inherit; /* Or auto */
+	padding: 0 10px; /* To give a bit of padding on the left and right */
+	border-bottom: none;
+}
+
+fieldset.scheduler-border {
+	border: 1px groove #ddd !important;
+	padding: 0 1.4em 1.4em 1.4em !important;
+	margin: 0 0 1.5em 0 !important;
+	-webkit-box-shadow: 0px 0px 0px 0px #000;
+	box-shadow: 0px 0px 0px 0px #000;
+}
+
+legend.scheduler-border {
+	font-size: 1.2em !important;
+	font-weight: bold !important;
+	text-align: left !important;
+}
+</style>
+<script type="text/javascript">
+	function loginGuest() {
+		window.location = "loginAsGuest";
+	}
+</script>
+<div class="header" align="center">
+  <br />
+  <br />
+  <s:if test="%{#session.user == null}">
+    <div align="center">
+      <img src="images/SINAPAD.jpeg" />
+    </div>
+  </s:if>
+  <h3 class="text-muted">${projectAcronym}</h3>
+  <h5 class="text-muted">${portalFullName}</h5>
+  <s:if test="%{#session.user == null}">
+    <s:if test="%{invalid}">
+      <div class="alert alert-danger alert-dismissable">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+        <strong>
+          <s:text name="jspf.header.login.ldap.msn.err" />
+        </strong>
+      </div>
+    </s:if>
+    <s:if test="%{invalidCert}">
+      <div class="alert alert-danger alert-dismissable">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+        <strong>
+          <s:text name="jspf.header.login.voms.msn.err" />
+        </strong>
+      </div>
+    </s:if>
+    <div class="row">
+      <s:if test="%{#application.ldapEnabled}">
+        <div class="col-md-6">
+          <fieldset class="scheduler-border">
+            <legend class="scheduler-border">
+              <s:text name="jspf.header.ldap.authentication" />
+            </legend>
+            <form id="login" action="ldapLogin" method="POST" class="form-signin">              
+              <input type="text" class="form-control" id="username" name="userName" placeholder="<s:text name='jspf.header.login.username.tip'/>">
+              <input type="password" class="form-control" id="password" name="password" placeholder="<s:text name='jspf.header.login.password.tip'/>">
+              <button class="btn btn-lg btn-primary btn-block" type="submit">
+                <s:text name="jspf.header.login.btn" />
+              </button>
+            </form>
+          </fieldset>
+        </div>
+      </s:if>
+      <s:if test="%{#application.vomsEnabled}">
+        <div class="col-md-6">
+          <fieldset class="scheduler-border">
+            <legend class="scheduler-border">
+              <s:text name="jspf.header.voms.authentication" />
+            </legend>
+            <form id="login" action="vomsLogin" method="POST" class="form-signin" enctype="multipart/form-data">              
+              <input type="file" class="form-control" id="cert" name="cert" placeholder="<s:text name='jspf.header.login.vom.cert.tip'/>">
+              <button class="btn btn-lg btn-primary btn-block" type="submit">
+                <s:text name="jspf.header.login.btn" />
+              </button>
+            </form>
+          </fieldset>
+        </div>
+      </s:if>
+      <s:if test="%{#application.shibbolethEnabled}">
+        <div class="col-md-6">
+          <fieldset class="scheduler-border">
+            <legend class="scheduler-border">
+              <s:text name="jspf.header.shibboleth.authentication" />
+            </legend>
+            <form class="form-signin">
+              <button class="btn btn-lg btn-block" type="button" onclick="window.location='${application.shibbolethUrl}?url='+ location.href + '/index.jsp&action=shibbolethLogin&gateway=${project}';">
+                <img src="images/logo-cafe.png" width="30%" />
+              </button>
+            </form>
+          </fieldset>
+        </div>
+      </s:if>
+      <div class="col-md-6">
+        <fieldset class="scheduler-border">
+          <legend class="scheduler-border">
+            <s:text name="jspf.header.question.have.account" />
+          </legend>
+          <form id="login" method="POST" class="form-signin">
+            <button class="btn btn-lg btn-primary btn-block" type="button" onclick="window.location='https://www.lncc.br/sinapad/formulario.php';">
+              <s:text name="jspf.header.sign.up" />
+            </button>
+            <s:if test='%{#application.guestEnabled}'>
+              <button class="btn btn-lg btn-secondary btn-block" type="button" onclick="loginGuest();">
+                <s:text name="jsp.header.login.guest.btn" />
+              </button>
+            </s:if>
+          </form>
+        </fieldset>
+      </div>
+    </div>
+  </s:if>
+  <s:else>
+    <div id="loading-indicator" class="loading" style="display: none; z-index: 1">
+      <img src="images/miscellaneous/loading.gif" />
+    </div>
+    <div align="center">
+      <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+          <div class="navbar-right">
+            <div class="container">
+              <a class="brand" href="https://www.lncc.br/sinapad" target="_blank">
+                <img src="images/SINAPAD.jpeg" width="50px">
+              </a>
+            </div>
+          </div>
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">
+                <s:text name="jsp.header.toggle.navigation" />
+              </span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+          </div>
+          <div class="collapse navbar-collapse" ng-controller="MenuController as menu" ng-app="menu">
+            <ul class="nav navbar-nav">
+              <li id="applications" ng-class="{ active: menu.isActive(1) }" ng-click="menu.selectTab(1)">
+                <a href="applications" onclick="javascript:showLoading();">
+                  <s:text name="jspf.header.applications" />
+                </a>
+              </li>
+              <li id="results" ng-class="{ active: menu.isActive(2) }" ng-click="menu.selectTab(2)">
+                <a href="listResults" onclick="javascript:showLoading();">
+                  <s:text name="jspf.header.results" />
+                </a>
+              </li>
+              <s:if test='%{#session.isGuest == false}'>
+                <li id="files" class="dropdown" ng-class="{ active: menu.isActive(3) }" ng-click="menu.selectTab(3)">
+                  <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                    <s:text name="jsp.header.files" />
+                    <span class="caret"></span>
+                  </a>
+                  <ul class="dropdown-menu">
+                    <li>
+                      <a href="manageFiles" onclick="javascript:showLoading();">
+                        <s:text name="jspf.header.project" />
+                      </a>
+                    </li>
+                    <!--<s:if test='%{#application.publicFilesEnabled}'>
+                      <li>
+                        <a href="managePublicFiles?absolutePath=${application.project}" onclick="javascript:showLoading();">
+                          <s:text name="jspf.header.public" />
+                        </a>
+                      </li>
+                    </s:if>-->
+                    <s:if test='%{#application.sharedFilesEnabled}'>
+                      <li>
+                        <a href="manageSharedFiles?absolutePath=${application.project}" onclick="javascript:showLoading();">
+                          <s:text name="jspf.header.shared" />
+                        </a>
+                      </li>
+                    </s:if>
+                  </ul>
+                </li>
+              </s:if>
+              <li id="help" class="dropdown" ng-class="{ active: menu.isActive(4) }" ng-click="menu.selectTab(4)">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                  <s:text name="jspf.header.help" />
+                  <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu">
+                  <li>
+                    <a i="help" href="index" onclick="javascript:showLoading();">
+                      <s:text name="jspf.header.index" />
+                    </a>
+                  </li>
+                  <li>
+                    <a i="help" href="contact" onclick="javascript:showLoading();">
+                      <s:text name="jspf.header.contact" />
+                    </a>
+                  </li>
+                  <li>
+                    <a i="help" href="help" onclick="javascript:showLoading();">
+                      <s:text name="jspf.header.howtouse" />
+                    </a>
+                  </li>
+                  <s:if test='%{#session.user.role == "Admin"}'>
+                    <li>
+                      <a i="help" href="selectMetricType" onclick="javascript:showLoading();">
+                        <s:text name="jspf.header.metrics" />
+                      </a>
+                    </li>
+                  </s:if>
+                </ul>
+              </li>
+              <li id="logout">
+                <a i="logout" href="logout">
+                  <s:text name="jspf.header.logout" />
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </s:else>
+  <h6 class="text-muted">&nbsp</h6>
+  <script>
+			(function(i, s, o, g, r, a, m) {
+				i['GoogleAnalyticsObject'] = r;
+				i[r] = i[r] || function() {
+					(i[r].q = i[r].q || []).push(arguments)
+				}, i[r].l = 1 * new Date();
+				a = s.createElement(o), m = s.getElementsByTagName(o)[0];
+				a.async = 1;
+				a.src = g;
+				m.parentNode.insertBefore(a, m)
+			})
+					(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+			
+			ga('create', 'UA-63464474-1', 'auto');
+			ga('send', 'pageview');
+		</script>
+</div>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<portal xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xsi:noNamespaceSchemaLocation="../xsd/portal.xsd"
+		allow-multiple-versions="true" auto-generate-interface="true"
+		allow-resource-choice="true" result-check-interval="40000">
+		<acronym-name>mc2</acronym-name>
+		<full-name>mc2 Gateway</full-name>
+		<project-name>mc2</project-name>
+		<applications>        	       
+				<application>
+						<name>mc2</name>
+						<default-version>0.0.1</default-version>
+						<info>mc2 Application</info>
+				</application>
+		</applications>
+</portal>

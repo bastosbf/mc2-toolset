@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+
+	<bean id="configurationService"
+		class="br.lncc.sinapad.adapter.csgrid.configuration.CSGridConfigurationService" />
+	<bean id="applicationService"
+		class="br.lncc.sinapad.adapter.csgrid.application.CSGridApplicationService" />
+	<bean id="authenticationService"
+		class="br.lncc.sinapad.adapter.csgrid.authentication.CSGridAuthenticationService" />
+	<bean id="fileService" class="br.lncc.sinapad.adapter.csgrid.file.CSGridFileService" />
+	<bean id="jobMonitoringService"
+		class="br.lncc.sinapad.adapter.csgrid.monitoring.CSGridJobMonitoringService" />
+	<bean id="jobSubmissionService"
+		class="br.lncc.sinapad.adapter.csgrid.submission.CSGridJobSubmissionService" />
+	<bean id="resourceMonitoringService"
+		class="br.lncc.sinapad.adapter.csgrid.monitoring.CSGridResourceMonitoringService" />
+
+</beans>

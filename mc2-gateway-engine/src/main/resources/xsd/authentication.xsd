@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<xsd:element name="authentication">
+		<xsd:complexType>
+			<xsd:all>
+				<xsd:element name="ldap" minOccurs="1" maxOccurs="1">
+					<xsd:complexType>
+						<xsd:all></xsd:all>
+						<xsd:attribute name="enabled"
+							type="xsd:boolean">
+						</xsd:attribute>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="voms" minOccurs="1" maxOccurs="1">
+					<xsd:complexType>
+						<xsd:attribute name="enabled"
+							type="xsd:boolean">
+						</xsd:attribute>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="shibboleth" minOccurs="1" maxOccurs="1">
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:element name="url" type="xsd:string">
+							</xsd:element>
+							<xsd:element name="storage-path"
+								type="xsd:string">
+							</xsd:element>
+						</xsd:sequence>
+						<xsd:attribute name="enabled"
+							type="xsd:boolean">
+						</xsd:attribute>
+					</xsd:complexType></xsd:element>
+			</xsd:all>
+		</xsd:complexType>
+	</xsd:element>
+</xsd:schema>
