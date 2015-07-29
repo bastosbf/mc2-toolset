@@ -50,7 +50,7 @@
 
 <span style="color: #0000ff">public</span> <span style="color: #0000ff">class</span> <span style="color: #2b91af">ExampleLogin</span> {
     <span style="color: #0000ff">public</span> <span style="color: #0000ff">static</span> <span style="color: #2b91af">void</span> main(String[] args) <span style="color: #0000ff">throws</span> IOException {
-        URL url = <span style="color: #0000ff">new</span> URL(<span style="color: #a31515">&quot;http://<span id="hostEx1"></span>rest/authentication/login&quot;</span>);
+        URL url = <span style="color: #0000ff">new</span> URL(<span style="color: #a31515">&quot;http://<span id="hostExLoginJAVA"></span>rest/authentication/login&quot;</span>);
         HttpURLConnection connection = (HttpURLConnection) url.openConnection();
 
         connection.setRequestMethod(<span style="color: #a31515">&quot;POST&quot;</span>);

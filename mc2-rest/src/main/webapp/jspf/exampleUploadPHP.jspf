@@ -1,0 +1,45 @@
+ <!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .1em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #0000ff">&lt;?php</span>
+   <span style="color: #008000"># $uuid = rest/authentication/login</span>
+ 
+   $curl = curl_init(<span style="color: #a31515">&#39;http://<span id="hostExUploadPHP"></span>rest/file/upload&#39;</span>);
+   <span style="color: #008000">#curl_setopt($curl, CURLOPT_HTTPHEADER, array(&#39;Content-Type: multipart/form-data&#39;,&#39;Accept: application/xml&#39;));</span>
+   curl_setopt($curl, CURLOPT_HTTPHEADER, <span style="color: #0000ff">array</span>(<span style="color: #a31515">&#39;Content-Type: multipart/form-data&#39;</span>,<span style="color: #a31515">&#39;Accept: application/json&#39;</span>));
+   curl_setopt($curl, CURLOPT_POST, <span style="color: #0000ff">true</span>);
+   curl_setopt($curl, CURLOPT_POSTFIELDS, <span style="color: #0000ff">array</span>(<span style="color: #a31515">&#39;uuid&#39;</span> =&gt; <span style="color: #a31515">&#39;$uuid&#39;</span>, <span style="color: #a31515">&#39;project&#39;</span> =&gt; <span style="color: #a31515">&#39;PROJECT&#39;</span>, <span style="color: #a31515">&#39;parents&#39;</span> =&gt; <span style="color: #a31515">&#39;parents&#39;</span>, <span style="color: #a31515">&#39;file&#39;</span> =&gt; <span style="color: #a31515">&#39;@/filePath&#39;</span>, <span style="color: #a31515">&#39;override&#39;</span> =&gt; <span style="color: #a31515">&#39;true&#39;</span>));
+   curl_setopt($curl, CURLOPT_RETURNTRANSFER, <span style="color: #0000ff">true</span>);
+   $curl_response = curl_exec($curl);
+   curl_close($curl); 
+
+   $obj = json_decode($curl_response);
+   $code = $obj-&gt;{<span style="color: #a31515">&#39;code&#39;</span>};
+   <span style="color: #0000ff">if</span>($code==200){
+     <span style="color: #0000ff">echo</span> <span style="color: #a31515">&#39;SUCCESS &lt;br&gt;&#39;</span> ;
+     <span style="color: #0000ff">echo</span> <span style="color: #a31515">&#39;&lt;br&gt;&#39;</span>;
+   }
+<span style="color: #0000ff">?&gt;</span>
+</pre></td></tr></table>
+<h4 class="text-right">
+            <a href="#top">Back to Top</a>
+          </h4></div>
+
+          
+
+          

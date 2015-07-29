@@ -1,0 +1,87 @@
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .1em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #0000ff">import</span> java.io.BufferedReader;
+<span style="color: #0000ff">import</span> java.io.DataOutputStream;
+<span style="color: #0000ff">import</span> java.io.File;
+<span style="color: #0000ff">import</span> java.io.IOException;
+<span style="color: #0000ff">import</span> java.io.InputStreamReader;
+<span style="color: #0000ff">import</span> java.net.HttpURLConnection;
+<span style="color: #0000ff">import</span> java.net.URL;
+<span style="color: #0000ff">import</span> org.apache.commons.io.FileUtils;
+<span style="color: #0000ff">import</span> org.codehaus.jettison.json.JSONException;
+<span style="color: #0000ff">import</span> org.codehaus.jettison.json.JSONObject;
+
+<span style="color: #0000ff">public</span> <span style="color: #0000ff">class</span> <span style="color: #2b91af">ExampleDownload</span> {
+    <span style="color: #0000ff">public</span> <span style="color: #0000ff">static</span> <span style="color: #2b91af">void</span> main(String[] args) <span style="color: #0000ff">throws</span> Exception {
+        <span style="color: #008000">// uuid = rest/authentication/login</span>
+        String uuid;
+        String project = <span style="color: #a31515">&quot;PROJECT&quot;</span>;
+        String parents = <span style="color: #a31515">&quot;parents&quot;</span>;
+        String fileName = <span style="color: #a31515">&quot;fileName&quot;</span>;
+
+        URL url = <span style="color: #0000ff">new</span> URL(<span style="color: #a31515">&quot;http://<span id="hostExDownloadJAVA"></span>rest/file/download&quot;</span>);
+        HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+
+        connection.setRequestMethod(<span style="color: #a31515">&quot;POST&quot;</span>);
+        connection.setDoOutput(<span style="color: #0000ff">true</span>);
+        connection.setRequestProperty(<span style="color: #a31515">&quot;Accept&quot;</span>, <span style="color: #a31515">&quot;application/octet-stream&quot;</span>);
+
+        String parameters = <span style="color: #a31515">&quot;uuid=&quot;</span> + uuid + <span style="color: #a31515">&quot;&amp;project=&quot;</span> + project + <span style="color: #a31515">&quot;&amp;parents=&quot;</span> + parents +  <span style="color: #a31515">&quot;&amp;file=&quot;</span> + fileName;
+        DataOutputStream wr = <span style="color: #0000ff">new</span> DataOutputStream(connection.getOutputStream());
+        wr.writeBytes(parameters);
+        wr.flush();
+        wr.close();
+
+        <span style="color: #2b91af">int</span> code = connection.getResponseCode();
+        <span style="color: #008000">// 200 is http success code</span>
+        <span style="color: #0000ff">if</span> (code == 200) {
+            File file = <span style="color: #0000ff">new</span> File(fileName);
+            FileUtils.copyInputStreamToFile(connection.getInputStream(), file);
+            System.out.println(<span style="color: #a31515">&quot;SUCCESS&quot;</span>);
+        }
+        System.err.println(<span style="color: #a31515">&quot;ERROR: &quot;</span> + code);
+    }
+}
+</pre></td></tr></table>
+          <h4 class="text-right">
+            <a href="#top">Back to Top</a>
+          </h4></div>

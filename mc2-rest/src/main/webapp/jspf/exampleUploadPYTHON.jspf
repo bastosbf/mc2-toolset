@@ -1,0 +1,35 @@
+ <!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .1em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #0000ff">from</span> poster.encode <span style="color: #0000ff">import</span> multipart_encode
+<span style="color: #0000ff">from</span> poster.streaminghttp <span style="color: #0000ff">import</span> register_openers
+<span style="color: #0000ff">import</span> urllib2
+<span style="color: #0000ff">import</span> urllib
+<span style="color: #0000ff">import</span> json
+
+<span style="color: #008000">#uuid = rest/authentication/login</span>
+
+register_openers()
+url = <span style="color: #a31515">&quot;http://<span id="hostExUploadPYTHON"></span>rest/file/upload&quot;</span>
+data, headers = multipart_encode({<span style="color: #a31515">&quot;uuid&quot;</span> : uuid, <span style="color: #a31515">&quot;project&quot;</span> : <span style="color: #a31515">&quot;PROJECT&quot;</span>,<span style="color: #a31515">&quot;file&quot;</span>: open(<span style="color: #a31515">&#39;file_test.txt&#39;</span>, <span style="color: #a31515">&#39;r+&#39;</span>), <span style="color: #a31515">&quot;override&quot;</span> : <span style="color: #a31515">&quot;false&quot;</span>})
+headers.update({<span style="color: #a31515">&quot;Accept&quot;</span> : <span style="color: #a31515">&quot;application/json&quot;</span>})
+<span style="color: #008000">#headers.update({"Accept" : "application/xml"})</span>
+request = urllib2.Request(url, data, headers)
+<span style="color: #0000ff">print</span> urllib2.urlopen(request).read()
+</pre></td></tr></table>
+          <h4 class="text-right">
+            <a href="#top">Back to Top</a>
+          </h4></div>
+
+
+          

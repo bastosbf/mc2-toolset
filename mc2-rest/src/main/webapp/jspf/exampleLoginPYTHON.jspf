@@ -13,7 +13,7 @@
 13</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #0000ff">import</span> urllib
 <span style="color: #0000ff">import</span> urllib2
 
-url = <span style="color: #a31515">&#39;http://<span id="hostEx3"></span>rest/authentication/login&#39;</span>
+url = <span style="color: #a31515">&#39;http://<span id="hostExLoginPYTHON"></span>rest/authentication/login&#39;</span>
 params = urllib.urlencode({
   <span style="color: #a31515">&#39;username&#39;</span>: <span style="color: #a31515">&#39;username&#39;</span>,
   <span style="color: #a31515">&#39;password&#39;</span>: <span style="color: #a31515">&#39;password&#39;</span>

@@ -832,7 +832,7 @@
                   - if success;
                   <br>
                   <code>FILE_ALREADY_EXISTS</code>
-                  - if the file already exists;
+                  - if the file already exists and 'override' is false;
                   <br>
                   <code>INTERNAL_SERVER_ERROR</code>
                   - if some error occurs.

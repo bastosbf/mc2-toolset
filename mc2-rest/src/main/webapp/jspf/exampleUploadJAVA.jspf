@@ -1,0 +1,183 @@
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .1em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #0000ff">import</span> java.io.BufferedReader;
+<span style="color: #0000ff">import</span> java.io.DataOutputStream;
+<span style="color: #0000ff">import</span> java.io.File;
+<span style="color: #0000ff">import</span> java.io.IOException;
+<span style="color: #0000ff">import</span> java.io.InputStreamReader;
+<span style="color: #0000ff">import</span> java.io.OutputStream;
+<span style="color: #0000ff">import</span> java.net.HttpURLConnection;
+<span style="color: #0000ff">import</span> java.net.URL;
+<span style="color: #0000ff">import</span> java.util.HashMap;
+<span style="color: #0000ff">import</span> java.util.Iterator;
+<span style="color: #0000ff">import</span> java.util.Map;
+<span style="color: #0000ff">import</span> java.util.Set;
+<span style="color: #0000ff">import</span> org.codehaus.jettison.json.JSONObject;
+<span style="color: #0000ff">import</span> com.google.common.io.Files;
+
+<span style="color: #0000ff">public</span> <span style="color: #0000ff">class</span> <span style="color: #2b91af">ExampleUpload</span> {
+    <span style="color: #0000ff">public</span> <span style="color: #0000ff">static</span> <span style="color: #2b91af">void</span> main(String[] args) <span style="color: #0000ff">throws</span> Exception {
+        <span style="color: #008000">// uuid = rest/authentication/login</span>
+        String uuid;
+        File file = <span style="color: #0000ff">new</span> File(<span style="color: #a31515">&quot;filePath&quot;</span>);
+
+        String boundary = <span style="color: #a31515">&quot;*****&quot;</span>;
+        String project = <span style="color: #a31515">&quot;PROJECT&quot;</span>;
+        String override = <span style="color: #a31515">&quot;true&quot;</span>;
+
+        URL url = <span style="color: #0000ff">new</span> URL(<span style="color: #a31515">&quot;http://<span id="hostExUploadJAVA"></span>rest/file/upload&quot;</span>);
+        HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+        connection.setRequestMethod(<span style="color: #a31515">&quot;POST&quot;</span>);
+        connection.setDoOutput(<span style="color: #0000ff">true</span>);
+        connection.setRequestProperty(<span style="color: #a31515">&quot;Content-Type&quot;</span>, <span style="color: #a31515">&quot;multipart/form-data;boundary=&quot;</span> + boundary);
+        connection.setRequestProperty(<span style="color: #a31515">&quot;Accept&quot;</span>, <span style="color: #a31515">&quot;application/json&quot;</span>);
+        <span style="color: #008000">// connection.setRequestProperty("Accept","application/xml")</span>
+        
+        HashMap&lt;String, Object&gt; parameters = <span style="color: #0000ff">new</span> HashMap&lt;&gt;();
+        parameters.put(<span style="color: #a31515">&quot;uuid&quot;</span>, uuid);
+        parameters.put(<span style="color: #a31515">&quot;project&quot;</span>, project);
+        parameters.put(<span style="color: #a31515">&quot;override&quot;</span>, override);
+        parameters.put(<span style="color: #a31515">&quot;file&quot;</span>, file);
+
+        sendHttpPOST(connection.getOutputStream(), parameters);
+
+        <span style="color: #2b91af">int</span> code = connection.getResponseCode();
+        System.out.println(code);
+        <span style="color: #008000">// 200 is http success code</span>
+        <span style="color: #0000ff">if</span> (code == 200) {
+            BufferedReader in = <span style="color: #0000ff">new</span> BufferedReader(<span style="color: #0000ff">new</span> InputStreamReader(connection.getInputStream()));
+            String response = <span style="color: #a31515">&quot;&quot;</span>;
+            String line = <span style="color: #0000ff">null</span>;
+            <span style="color: #0000ff">while</span> ((line = in.readLine()) != <span style="color: #0000ff">null</span>) {
+                response += line;
+            }
+            in.close();
+            JSONObject json = <span style="color: #0000ff">new</span> JSONObject(response);
+            <span style="color: #0000ff">if</span> (json.getInt(<span style="color: #a31515">&quot;code&quot;</span>) == 200) {
+                System.out.println(<span style="color: #a31515">&quot;SUCCESS!!&quot;</span>);
+            }
+        }
+    }
+
+    <span style="color: #0000ff">private</span> <span style="color: #0000ff">static</span> <span style="color: #2b91af">void</span> sendHttpPOST(OutputStream out, Map&lt;String, Object&gt; parameters) <span style="color: #0000ff">throws</span> IOException {
+        String crlf = <span style="color: #a31515">&quot;\r\n&quot;</span>;
+        String twoHyphens = <span style="color: #a31515">&quot;--&quot;</span>;
+        String boundary = <span style="color: #a31515">&quot;*****&quot;</span>;
+
+        Set&lt;String&gt; keys = parameters.keySet();
+        Iterator&lt;String&gt; i = keys.iterator();
+
+        DataOutputStream wr = <span style="color: #0000ff">new</span> DataOutputStream(out);
+        <span style="color: #0000ff">while</span> (i.hasNext()) {
+            String key = i.next();
+            <span style="color: #0000ff">if</span> (parameters.get(key) <span style="color: #0000ff">instanceof</span> String) {
+                wr.writeBytes(twoHyphens + boundary + crlf);
+                wr.writeBytes(<span style="color: #a31515">&quot;Content-Disposition: form-data; name=\&quot;&quot;</span> + key + <span style="color: #a31515">&quot;\&quot;&quot;</span> + crlf);
+                wr.writeBytes(<span style="color: #a31515">&quot;Content-Type: text/plain;charset=UTF-8&quot;</span> + crlf + <span style="color: #a31515">&quot;Content-Length: &quot;</span> + parameters.get(key).toString().length() + crlf + crlf);
+                wr.writeBytes(parameters.get(key) + crlf);
+            } <span style="color: #0000ff">else</span> <span style="color: #0000ff">if</span> (parameters.get(key) <span style="color: #0000ff">instanceof</span> File) {
+                File file = (File) parameters.get(key);
+                <span style="color: #2b91af">byte</span>[] arr = Files.toByteArray(file);
+                wr.writeBytes(twoHyphens + boundary + crlf);
+                wr.writeBytes(<span style="color: #a31515">&quot;Content-Disposition: form-data; name=\&quot;&quot;</span> + key + <span style="color: #a31515">&quot;\&quot;;filename=\&quot;&quot;</span> + file.getName() + <span style="color: #a31515">&quot;\&quot;&quot;</span> + crlf);
+                wr.writeBytes(crlf);
+                wr.write(arr);
+                wr.writeBytes(crlf);
+            }
+        }
+        wr.writeBytes(twoHyphens + boundary + twoHyphens + crlf);
+        wr.flush();
+        wr.close();
+    }
+}
+</pre></td></tr></table>
+          <h4 class="text-right">
+            <a href="#top">Back to Top</a>
+          </h4></div>

@@ -15,39 +15,120 @@
   <fieldset class="scheduler-border">
     <div ng-show="tabActive==1">
       <legend class="scheduler-border" id="java exemples">Java Examples</legend>
-      <div class="list-group">
+       <div class="list-group" ng-init="exampleActive=1">
+        <ul class="nav nav-tabs">
+          <li ng-class="{active: exampleActive==1}">
+            <a href="#java" ng-click="exampleActive=1">Login</a>
+          </li>
+          <li ng-class="{active: exampleActive==2}">
+            <a href="#php" ng-click="exampleActive=2">Upload</a>
+          </li>
+          <li ng-class="{active: exampleActive==3}">
+            <a href="#python" ng-click="exampleActive=3">Download</a>
+          </li>
+        </ul>
         <div class="list-group-item">
-          <h4 class="list-group-item-heading">
-            <a href="" target="_blank">rest/authentication/login example</a>
-          </h4>
-          </br>
-          <%@ include file="exampleLoginJAVA.jspf"%>
+          <div ng-show="exampleActive==1">
+            <h4 class="list-group-item-heading">
+              <a href="" target="_blank">rest/authentication/login example</a>
+            </h4>
+            </br>
+            <%@ include file="exampleLoginJAVA.jspf"%>
+          </div>
+          <div ng-show="exampleActive==2">
+            <h4 class="list-group-item-heading">
+              <a href="" target="_blank">rest/file/upload example</a>
+            </h4>
+            </br>
+            <%@ include file="exampleUploadJAVA.jspf"%>
+          </div>
+          <div ng-show="exampleActive==3">
+            <h4 class="list-group-item-heading">
+              <a href="" target="_blank">rest/file/download example</a>
+            </h4>
+            </br>
+            <%@ include file="exampleDownloadJAVA.jspf"%>
+          </div>
         </div>
       </div>
     </div>
 
     <div ng-show="tabActive==2">
       <legend class="scheduler-border" id="php exemples">PHP Examples</legend>
-      <div class="list-group">
+      <div class="list-group" ng-init="exampleActive=1">
+        <ul class="nav nav-tabs">
+          <li ng-class="{active: exampleActive==1}">
+            <a href="#java" ng-click="exampleActive=1">Login</a>
+          </li>
+          <li ng-class="{active: exampleActive==2}">
+            <a href="#php" ng-click="exampleActive=2">Upload</a>
+          </li>
+          <li ng-class="{active: exampleActive==3}">
+            <a href="#python" ng-click="exampleActive=3">Download</a>
+          </li>
+        </ul>
         <div class="list-group-item">
-          <h4 class="list-group-item-heading">
-            <a href="" target="_blank">rest/authentication/login example</a>
-          </h4>
-          </br>
-          <%@ include file="exampleLoginPHP.jspf"%>
+          <div ng-show="exampleActive==1">
+            <h4 class="list-group-item-heading">
+              <a href="" target="_blank">rest/authentication/login example</a>
+            </h4>
+            </br>
+            <%@ include file="exampleLoginPHP.jspf"%>
+          </div>
+          <div ng-show="exampleActive==2">
+            <h4 class="list-group-item-heading">
+              <a href="" target="_blank">rest/file/upload example</a>
+            </h4>
+            </br>
+            <%@ include file="exampleUploadPHP.jspf"%>
+          </div>
+          <div ng-show="exampleActive==3">
+            <h4 class="list-group-item-heading">
+              <a href="" target="_blank">rest/file/download example</a>
+            </h4>
+            </br>
+            <%@ include file="exampleDownloadPHP.jspf"%>
+          </div>
         </div>
       </div>
     </div>
 
     <div ng-show="tabActive==3">
       <legend class="scheduler-border" id="python exemples">Python Examples</legend>
-      <div class="list-group">
+      <div class="list-group" ng-init="exampleActive=1">
+        <ul class="nav nav-tabs">
+          <li ng-class="{active: exampleActive==1}">
+            <a href="#java" ng-click="exampleActive=1">Login</a>
+          </li>
+          <li ng-class="{active: exampleActive==2}">
+            <a href="#php" ng-click="exampleActive=2">Upload</a>
+          </li>
+          <li ng-class="{active: exampleActive==3}">
+            <a href="#python" ng-click="exampleActive=3">Download</a>
+          </li>
+        </ul>
         <div class="list-group-item">
-          <h4 class="list-group-item-heading">
-            <a href="" target="_blank">rest/authentication/login example</a>
-          </h4>
-          </br>
-          <%@ include file="exampleLoginPYTHON.jspf"%>
+          <div ng-show="exampleActive==1">
+            <h4 class="list-group-item-heading">
+              <a href="" target="_blank">rest/authentication/login example</a>
+            </h4>
+            </br>
+            <%@ include file="exampleLoginPYTHON.jspf"%>
+          </div>
+          <div ng-show="exampleActive==2">
+            <h4 class="list-group-item-heading">
+              <a href="" target="_blank">rest/file/upload example</a>
+            </h4>
+            </br>
+            <%@ include file="exampleUploadPYTHON.jspf"%>
+          </div>
+          <div ng-show="exampleActive==3">
+            <h4 class="list-group-item-heading">
+              <a href="" target="_blank">rest/file/download example</a>
+            </h4>
+            </br>
+            <%@ include file="exampleDownloadPYTHON.jspf"%>
+          </div>
         </div>
       </div>
     </div>
@@ -56,8 +137,14 @@
 
 
 <script type="text/javascript">
-	var host = window.location.host + window.location.pathname
-	document.getElementById("hostEx1").innerHTML = host;
-	document.getElementById("hostEx2").innerHTML = host;
-	document.getElementById("hostEx3").innerHTML = host;
+	var host = window.location.host + window.location.pathname;
+	document.getElementById("hostExLoginJAVA").innerHTML = host;
+	document.getElementById("hostExUploadJAVA").innerHTML = host;
+	document.getElementById("hostExDownloadJAVA").innerHTML = host;
+	document.getElementById("hostExLoginPHP").innerHTML = host;
+	document.getElementById("hostExUploadPHP").innerHTML = host;
+	document.getElementById("hostExDownloadPHP").innerHTML = host;
+	document.getElementById("hostExLoginPYTHON").innerHTML = host;
+	document.getElementById("hostExUploadPYTHON").innerHTML = host;
+	document.getElementById("hostExDownloadPYTHON").innerHTML = host;
 </script>
